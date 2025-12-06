@@ -1,0 +1,11 @@
+## Redirect requests to `public/` (preferably set your Apache DocumentRoot to `public/`)
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	# If someone visits the project root, serve the public/ folder
+	RewriteRule ^$ public/ [L]
+	RewriteRule (.*) public/$1 [L]
+</IfModule>
+
+## NOTE: For production it's recommended to set the Apache DocumentRoot to the `public/` directory
+## and enable `AllowOverride All` for that directory so this .htaccess is applied.
+
